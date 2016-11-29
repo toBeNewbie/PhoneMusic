@@ -2,15 +2,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.phonemusic.MainActivity" >
+    android:background="@drawable/img_single_bg"
+    tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <!-- 1.top -->
+
+    <include
+        android:id="@+id/include_top_id"
+        layout="@layout/include_top" />
+    <!-- 2.bottom -->
+
+    <include
+        android:id="@+id/include_bottom_id"
+        layout="@layout/include_bottom" />
+    <!-- 3.center -->
+
+    <com.example.phonemusic.view.ScrollableViewGroup
+        android:id="@+id/svg_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/include_bottom_id"
+        android:layout_below="@id/include_top_id" >
+
+        <include layout="@layout/include_page_play" />
+
+        <include layout="@layout/include_page_list" />
+
+        <include layout="@layout/include_page_lrc" />
+    </com.example.phonemusic.view.ScrollableViewGroup>
 
 </RelativeLayout>
